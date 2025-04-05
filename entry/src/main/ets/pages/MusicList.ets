@@ -18,18 +18,119 @@ export struct MusicList {
   store: relationalStore.RdbStore | undefined = undefined;
   @Local musicList: Music[] = [
     {
-    id: 1,
-    title: "song",
-    url: "fd/wer",
-    singer: "singer",
-    img:null
-  }, {
-    id: 1,
-    title: "song",
-    url: "fd/wer",
-    singer: "singer",
-    img:null
-  }]
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/0.jpg',
+      title: '直到世界的尽头',
+      singer: 'WANDS',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/0.m4a',
+      id: 0
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/1.jpg',
+      title: '画',
+      singer: '赵磊',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/1.mp3',
+      id: 1
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/2.jpg',
+      title: 'Sweet Dreams',
+      singer: 'TPaul Sax / Eurythmics',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/2.mp3',
+      id: 2
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/3.jpg',
+      title: '奢香夫人',
+      singer: '凤凰传奇',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/3.m4a',
+      id: 3
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/4.jpg',
+      title: '空心',
+      singer: '光泽',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/4.mp3',
+      id: 4
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/5.jpg',
+      title: '反转地球',
+      singer: '潘玮柏',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/5.mp3',
+      id: 5
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/6.jpg',
+      title: 'No.9',
+      singer: 'T-ara',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/6.m4a',
+      id: 6
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/7.jpg',
+      title: '孤独',
+      singer: 'G.E.M.邓紫棋',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/7.m4a',
+      id: 7
+    },
+
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/8.jpg',
+      title: 'Lose Control',
+      singer: 'Hedley',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/8.m4a',
+      id: 8
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/9.jpg',
+      title: '倩女幽魂',
+      singer: '张国荣',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/9.m4a',
+      id: 9
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/10.jpg',
+      title: '北京北京',
+      singer: '汪峰',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/10.m4a',
+      id: 10
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/11.jpg',
+      title: '苦笑',
+      singer: '汪苏泷',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/11.mp3',
+      id: 11
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/12.jpg',
+      title: '一生所爱',
+      singer: '卢冠廷 / 莫文蔚',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/12.m4a',
+      id: 12
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/13.jpg',
+      title: '月半小夜曲',
+      singer: '李克勤',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/13.mp3',
+      id: 13
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/14.jpg',
+      title: 'Rolling in the Deep',
+      singer: 'Adele',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/14.m4a',
+      id: 14
+    },
+    {
+      img: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/15.jpg',
+      title: '海阔天空',
+      singer: 'Beyond',
+      url: 'http://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/HeimaCloudMusic/15.m4a',
+      id: 15
+    }
+  ]
 
   songDetails(): void {
     console.log("点击了songDetails");
@@ -37,9 +138,7 @@ export struct MusicList {
 
   playSong() {
     console.log("点击了playSong");
-    this.getUIContext()?.animateTo({ duration: 1000 }, () => {
-      this.pathStack.pushPath({ name: 'Play' }, false)
-    })
+    this.pathStack.pushPath({ name: 'Play' }, false)
   }
 
   selectAudio(): string[] {

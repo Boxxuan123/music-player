@@ -59,6 +59,9 @@
           ],
           "when": "inuse"  // 何时需要该权限（inUse/always）
         }
+      },
+      {
+        "name" : "ohos.permission.INTERNET",
       }
     ]
   }
