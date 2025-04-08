@@ -128,7 +128,7 @@ struct Play {
   ]
   // 当前播放的歌曲
   @State
-  playState: Music = this.songs[0]
+  playState: Music = this.songs[5]
 
   @Builder
   deleteButton(index: number) {
@@ -161,314 +161,139 @@ struct Play {
 
   build() {
     NavDestination() {
-      Column() {
-        Stack({ alignContent: Alignment.Bottom }) {
-          // 播放
-          Stack() {
-            // 变色背景
-            Image(this.playState.img)
-              .width('100%')
-              .height('100%')
-              .blur(1000)
-            // 内容
-            Column() {
-              // //   播放界面
-              Column() {
-                // 图片
-                Stack({ alignContent: Alignment.Top }) {
-                  Row() {
-                    Row() {
-                      Image($r('app.media.picture_fill'))
-                        .width('70%')
-                        .borderRadius(400)
-                        .geometryTransition('sharedId')
-                    }
-                    .backgroundImage($r('app.media.heart'))
-                    .backgroundImageSize(ImageSize.Cover)
-                    .justifyContent(FlexAlign.Center)
-                    .width('100%')
-                    .borderRadius(400)
-                    .clip(true)
-                    .aspectRatio(1)
-                  }
-                  .margin({
-                    top: 50
-                  })
-                  .width('90%')
-                  .aspectRatio(1)
-                  .justifyContent(FlexAlign.Center)
-                  .padding(24)
-
-                  // 唱针
-                  Image($r('app.media.ic_stylus'))
-                    .width(200)
-                    .aspectRatio(1)
-                    .rotate({
-                      angle: -55,
-                      centerX: 100,
-                      centerY: 30
-                    })
-                    .animation({
-                      duration: 500
-                    })
-                }
-
-                // 歌曲信息
-                Stack() {
-                  // 第一个
-                  Column({ space: 8 }) {
-                    Text(this.playState.title)
-                      .fontSize(28)
-                      .fontWeight(FontWeight.Bold)
-                      .fontColor('#4bb0c4')
-                    Text(this.playState.singer)
-                      .fontSize(18)
-                      .fontColor('#4bb0c4')
-                  }
-                  .layoutWeight(1)
-                  .justifyContent(FlexAlign.Center)
-                  .zIndex(1)
-
-                  // 第二个
-                  Column({ space: 8 }) {
-                    Text(this.playState.title)
-                      .fontSize(28)
-                      .fontWeight(FontWeight.Bold)
-                      .fontColor('#ec5c87')
-                    Text(this.playState.singer)
-                      .fontSize(18)
-                      .fontColor('#ec5c87')
-                  }
-                  .layoutWeight(1)
-                  .justifyContent(FlexAlign.Center)
-                  .zIndex(2)
-
-                  // 第三个
-                  Column({ space: 8 }) {
-                    Text(this.playState.title)
-                      .fontSize(28)
-                      .fontWeight(FontWeight.Bold)
-                      .fontColor(Color.Black)
-                    Text(this.playState.singer)
-                      .fontSize(18)
-                      .fontColor(Color.Black)
-                  }
-                  .layoutWeight(1)
-                  .justifyContent(FlexAlign.Center)
-                  .zIndex(3)
-                }
-                .layoutWeight(1)
-
-                // 操作
-                Row() {
-                  Badge({ value: '99+', style: { badgeSize: 12, badgeColor: '#45CCCCCC', borderWidth: 0 } }) {
-                    Image($r("app.media.picture_fill"))
-                      .fillColor(Color.Black)
-                      .width(24)
-
-                  }
-
-                  Badge({ value: '10W', style: { badgeSize: 12, badgeColor: '#45cccccc', borderWidth: 0 } }) {
-                    Image($r("app.media.heart"))
-                      .fillColor(Color.Black)
-                      .width(18)
-                  }
-
-                  Badge({ value: 'hot', style: { badgeSize: 12, badgeColor: '#a8ff3131', borderWidth: 0 } }) {
-                    Image($r("app.media.heart"))
-                      .fillColor(Color.Black)
-                      .width(24)
-                  }
-
-                  Badge({ value: 'vip', style: { badgeSize: 12, badgeColor: '#b7efd371', borderWidth: 0 } }) {
-                    Image($r("app.media.heart"))
-                      .fillColor(Color.Black)
-                      .width(24)
-                  }
-                }
-                .width('100%')
-                .justifyContent(FlexAlign.SpaceAround)
-
-                // 播放
-                Column() {
-                  // 进度条
-                  Row({ space: 4 }) {
-                    Text("00:00")
-                      .fontSize(12)
-                      .fontColor(Color.Black)
-                    Slider({
-                      value: 0,
-                      min: 0,
-                      max: 0
-                    })
-                      .layoutWeight(1)
-                      .blockColor(Color.Black)
-                      .selectedColor(Color.Black)
-                      .trackColor('#ccc5c5c5')
-                      .trackThickness(2)
-                    Text("00:00")
-                      .fontSize(12)
-                      .fontColor(Color.Black)
-                  }
-                  .width('100%')
-                  .padding(24)
-
-                  // 切换
-                  Row() {
-                    Image($r('app.media.heart'))
-                      .fillColor(Color.Black)
-                      .width(30)
-
-                    Image($r("app.media.heart"))
-                      .fillColor(Color.Black)
-                      .width(30)
-
-                    // 播放按钮
-                    Image($r('app.media.heart'))
-                      .fillColor(Color.Black)
-                      .width(50)
-                    // 下一首
-                    Image($r('app.media.heart'))
-                      .fillColor(Color.Black)
-                      .width(30)
-                    // 播放列表
-                    Image($r('app.media.heart'))
-                      .fillColor(Color.Black)
-                      .width(30)
-                  }
-                  .width('100%')
-                  .padding({
-                    bottom: 24
-                  })
-                  .justifyContent(FlexAlign.SpaceAround)
-                }
-                .width('100%')
-              }
-              .layoutWeight(1)
-              .width('100%')
-            }
-
-          }
-          .width('100%')
-          .height('100%')
-          .backgroundColor(Color.Transparent)
-
-          // 列表
+      Stack({ alignContent: Alignment.Bottom }) { // 播放
+        Column() {
+          //   播放界面
           Column() {
-            Column() {
-
+            // 图片
+            Row() {
+              Image(this.playState.img).width('70%').borderRadius(400)
             }
-            .width('100%')
-            .layoutWeight(1)
-            .onClick(() => {
-              this.panelHeight = '0%'
-            })
+            .backgroundImage($r('app.media.ic_cd'))
+            .backgroundImageSize(ImageSize.Cover)
+            .justifyContent(FlexAlign.Center)
+            .width('70%')
+            .padding(24)
+            .borderRadius(400)
+            .aspectRatio(1)
+            .margin({ top: 50 })
 
-            Column() {
-              Row() {
-                Row() {
-                  Image($r("app.media.heart"))
-                    .width(20)
-                    .fillColor('#ff5186')
-                }
-                .width(50)
-                .aspectRatio(1)
-                .justifyContent(FlexAlign.Center)
+            Column({ space: 8 }) {
+              Text(this.playState.title).fontSize(28).fontWeight(FontWeight.Bold).fontColor(Color.White)
+              Text(this.playState.singer).fontSize(18).fontColor(Color.White)
+            }.layoutWeight(1).justifyContent(FlexAlign.Center).zIndex(3)
 
-                Row({ space: 8 }) {
-                  Text(`播放列表 (0)`)
-                    .fontColor(Color.Black)
-                    .fontSize(14)
-                }
-                .layoutWeight(1)
+            // 操作
+            // Row() {
+            //   Image($r("app.media.picture_fill")).fillColor(Color.White).width(24)
+            //   Image($r("app.media.heart")).fillColor(Color.White).width(24)
+            //   Image($r("app.media.heart")).fillColor(Color.White).width(24)
+            //   Image($r("app.media.heart")).fillColor(Color.White).width(24)
+            // }.width('100%').justifyContent(FlexAlign.SpaceAround)
 
-                Image($r('app.media.heart'))
-                  .fillColor('#ffa49a9a')
-                  .width(24)
-                  .height(24)
-                  .margin({ right: 16 })
-                  .onClick(() => {
-                    this.panelHeight = '0%'
-                  })
-              }
-              .width('100%')
-              .backgroundColor('#ff353333')
-              .padding(8)
-              .border({
-                width: { bottom: 1 },
-                color: '#12ec5c87'
-              })
-              .borderRadius({
-                topLeft: 4,
-                topRight: 4
-              })
+          }.layoutWeight(1).width('100%')
 
-              // 播放列表
-              List() {
-                ForEach(this.songs, (item: Music, index: number) => {
-                  ListItem() {
-                    Row() {
-                      Row() {
-                        Text((index + 1).toString())
-                          .fontColor('#ffa49a9a')
-                      }
-                      .width(50)
-                      .aspectRatio(1)
-                      .justifyContent(FlexAlign.Center)
 
-                      // 列表
-                      Row({ space: 10 }) {
-                        Column() {
-                          Text(item.title)
-                            .fontSize(14)
-                            .fontColor('#ffa49a9a')
-                          Text(item.singer)
-                            .fontSize(12)
-                            .fontColor(Color.Gray)
-                        }
-                        .layoutWeight(1)
-                        .alignItems(HorizontalAlign.Start)
-                        .justifyContent(FlexAlign.Center)
-                      }
-                      .layoutWeight(1)
-
-                      Image($r('app.media.heart'))
-                        .width(24)
-                        .height(24)
-                        .margin({ right: 16 })
-                        .fillColor(Color.Gray)
-                    }
-                    .alignItems(VerticalAlign.Center)
-                  }
-                  .swipeAction({
-                    end: this.deleteButton(index)
-                  })
-                  .border({
-                    width: { bottom: 1 },
-                    color: '#12ec5c87'
-                  })
-                })
-              }
+          // 进度条
+          Row({ space: 4 }) {
+            Text("00:00").fontSize(12).fontColor(Color.White)
+            Slider({ value: 0, min: 0, max: 0 })
               .layoutWeight(1)
-              .backgroundColor('#ff353333')
+              .blockColor(Color.White)
+              .selectedColor(Color.White)
+              .trackColor('#ccc5c5c5')
+              .trackThickness(2)
+            Text("00:00").fontSize(12).fontColor(Color.White)
+          }.width('100%').padding(24)
 
-            }
-            .height(this.panelHeight)
-          }
-          .height(this.panelHeight)
-          .animation({
-            duration: 300
+          // 切换
+          Row() {
+            Image($r('app.media.repeat')).fillColor(Color.White).width(30)
+            Image($r("app.media.backward_end_fill")).fillColor(Color.White).width(30)
+            // 播放按钮
+            Image($r('app.media.play_fill')).fillColor(Color.White).width(50)
+            // 下一首
+            Image($r('app.media.forward_end_fill')).fillColor(Color.White).width(30)
+            // 播放列表
+            Image($r('app.media.list_interrupt')).fillColor(Color.White).width(30).onClick(() => {
+              this.panelHeight = "100%"
+            })
+          }.width('100%').padding({ bottom: 24 }).justifyContent(FlexAlign.SpaceAround)
+
+        }.width('100%')
+
+
+        // 列表
+        Column() {
+          Column() {
+          }.width("100%").height(50).onClick(() => {
+            this.panelHeight = "0%"
           })
 
-        }
-        .width('100%')
-        .height('100%')
-        .backgroundColor(Color.Transparent)
-      }.height("100%").width("100%")
+          Column() {
+            Row() {
+              Text(`播放列表 ${this.songs.length}`)
+                .fontColor('#ffa49a9a')
+                .fontSize(14)
+                .layoutWeight(1)
+                .margin({ left: 8, top: 5 })
+              Image($r('app.media.remove_songlist'))
+                .fillColor('#ffa49a9a')
+                .width(24)
+                .margin({ right: 8 })
+                .onClick(() => {
+                  this.panelHeight = '0%'
+                })
+            }
+            .justifyContent(FlexAlign.Center)
+            .height(40)
+            .width('100%')
+            .backgroundColor('#ff353333')
+            .padding(8)
+            .border({ width: { bottom: 1 }, color: '#12ec5c87' })
+            .borderRadius({ topLeft: 15, topRight: 15 })
+
+
+            // 播放列表
+            List() {
+              ForEach(this.songs, (item: Music, index: number) => {
+                ListItem() {
+                  Row() {
+                    Row() {
+                      Text((index + 1).toString()).fontColor('#ffa49a9a')
+                    }.width(50).aspectRatio(1).justifyContent(FlexAlign.Center)
+
+                    // 列表
+                    Row({ space: 10 }) {
+                      Column() {
+                        Text(item.title).fontSize(14).fontColor('#ffa49a9a')
+                        Text(item.singer).fontSize(12).fontColor(Color.Gray)
+                      }.layoutWeight(1).alignItems(HorizontalAlign.Start).justifyContent(FlexAlign.Center)
+                    }.layoutWeight(1)
+
+                    Image($r('app.media.heart')).width(24).margin({ right: 16 }).fillColor(Color.Gray)
+                  }.alignItems(VerticalAlign.Center)
+                }.swipeAction({ end: this.deleteButton(index) }).border({ width: { bottom: 1 }, color: '#12ec5c87' })
+              })
+            }
+
+            .layoutWeight(1)
+            .backgroundColor('#ff353333')
+            .height(this.panelHeight)
+            .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
+          }
+        }.height(this.panelHeight).animation({ duration: 300 })
+
+      }
 
     }
     .onReady((context: NavDestinationContext) => {
       this.pathStack = context.pathStack
     })
+    .backgroundColor(Color.Transparent)
+    .backgroundImageSize(ImageSize.Cover)
+    .backgroundImage(this.playState.img)
+    .backdropBlur(500)
+    .backgroundImagePosition(Alignment.Center)
   }
 }
