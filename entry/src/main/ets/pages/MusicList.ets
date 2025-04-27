@@ -14,7 +14,7 @@ interface egDivider {
 
 @ComponentV2
 export struct MusicList {
-  @Require @Param pathStack : NavPathStack
+  @Require @Param pathStack: NavPathStack
   store: relationalStore.RdbStore | undefined = undefined;
   @Local musicList: Music[] = [
     {
@@ -162,7 +162,7 @@ export struct MusicList {
   }
 
   @Builder
-  musicListItem(title: string, singer: string,img:string|null) {
+  musicListItem(title: string, singer: string, img: string | null) {
     Button({ type: ButtonType.Normal, stateEffect: true }) {
       Row() {
 
@@ -181,13 +181,15 @@ export struct MusicList {
 
         Button() {
           Image($r("app.media.dot_grid_1x2")).backgroundColor('#0C0C0C').fillColor("#C6C6C6").width(35)
-        }.onClick(() => { this.songDetails() })
+        }.onClick(() => {
+          this.songDetails()
+        })
 
       }.justifyContent(FlexAlign.Center)
-    }.borderRadius(8).backgroundColor('#0C0C0C').onClick(() => { this.playSong() })
+    }.borderRadius(8).backgroundColor('#0C0C0C').onClick(() => {
+      this.playSong()
+    })
   }
-
-
 
   build() {
     RelativeContainer() {
@@ -213,7 +215,7 @@ export struct MusicList {
           }
           ForEach(this.musicList, (item: Music, index: number) => {
             ListItem() {
-              this.musicListItem(item.title, item.singer,item.img)
+              this.musicListItem(item.title, item.singer, item.img)
             }
           })
         }
